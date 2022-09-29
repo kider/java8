@@ -11,7 +11,9 @@ public class ConcurrentUtils {
     public static void stop(ExecutorService executor) {
         try {
             executor.shutdown();
-            executor.awaitTermination(60, TimeUnit.SECONDS);
+            if (!executor.awaitTermination(60, TimeUnit.SECONDS)) {
+                executor.shutdownNow();
+            }
         } catch (InterruptedException e) {
             System.err.println("termination interrupted");
         } finally {
