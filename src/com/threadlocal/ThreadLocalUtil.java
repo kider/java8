@@ -1,5 +1,7 @@
 package com.threadlocal;
 
+import java.util.List;
+
 /**
  * @ClassName ThreadLocalUtil
  * @Description 测试threadLocal
@@ -9,17 +11,15 @@ package com.threadlocal;
  **/
 public class ThreadLocalUtil {
 
-
-    private static final ThreadLocal<String> threadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<List<String>> threadLocal = new ThreadLocal<>();
 
     private static final InheritableThreadLocal<String> inheritableThreadLocal = new InheritableThreadLocal<>();
 
-
-    public static String getThreadLocal() {
+    public static List<String> getThreadLocal() {
         return threadLocal.get();
     }
 
-    public static void setThreadLocal(String str) {
+    public static void setThreadLocal(List<String> str) {
         threadLocal.set(str);
     }
 
