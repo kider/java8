@@ -24,8 +24,8 @@ public class ProduceConsume {
      * 生产
      */
     public void produce() {
+        reentrantLock.lock();
         try {
-            reentrantLock.lock();
             //没有的时候 生产
             while (0 != number) {
                 System.out.println("生产线程：" + Thread.currentThread().getName() + " wait,当前number:" + number);
@@ -44,8 +44,8 @@ public class ProduceConsume {
 
 
     public void consume() {
+        reentrantLock.lock();
         try {
-            reentrantLock.lock();
             //没有的时候 不再消费
             while (0 == number) {
                 System.out.println("消费线程：" + Thread.currentThread().getName() + " wait,当前number:" + number);

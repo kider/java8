@@ -8,7 +8,7 @@ public class CallableTest {
 
         Callable<Integer> task = () -> {
 
-            TimeUnit.SECONDS.sleep(2);
+            TimeUnit.SECONDS.sleep(100);
 
             return 123;
         };
